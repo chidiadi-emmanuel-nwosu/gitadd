@@ -1,0 +1,26 @@
+#!/bin/bash
+
+#Program that automates git add processes v1.0
+#Author: Chidiadi E. Nwosu
+
+
+ac=$#
+av=$@
+
+main()
+{
+	if [ $ac -lt 1 ]
+	then
+		echo "Usage: gitadd <filename(s) or '.' to add all files"
+		exit 1
+	else
+		git add $av
+		read -p "Enter a commit message: " commit
+		git commit -m "$commit"
+		git push
+	fi
+	exit 0
+}
+
+
+main
